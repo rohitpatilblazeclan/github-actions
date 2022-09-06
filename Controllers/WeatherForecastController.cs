@@ -41,11 +41,11 @@ namespace MyAPIApp.Controllers
             return "emp1,emp2";
         }
 
-        //[HttpGet("mystudentData")]
-        //public string GetStudent()
-        //{
-        //    return "student1,student2";
-        //}
+        [HttpGet("mystudentdata")]
+        public string getstudent()
+        {
+            return "student1,student2";
+        }
         //[HttpGet("falseData2")]
         //public string Getdata()
         //{
