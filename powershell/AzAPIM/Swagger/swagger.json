@@ -1,0 +1,511 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "NECWebAPI",
+    "version": "v1"
+  },
+  "paths": {
+    "/api/Admin/autogateclearance": {
+      "get": {
+        "tags": [
+          "Admin"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Admin/posttravellerdata": {
+      "post": {
+        "tags": [
+          "Admin"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TravellerData"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TravellerData"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/TravellerData"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/TravellerPostResponce"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TravellerPostResponce"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TravellerPostResponce"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Email/sendemail": {
+      "post": {
+        "tags": [
+          "Email"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EmailPrototype"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EmailPrototype"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/EmailPrototype"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/FileUpload/imageupload1": {
+      "post": {
+        "tags": [
+          "FileUpload"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ImageUploadQueryParameterModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ImageUploadQueryParameterModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ImageUploadQueryParameterModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ImageDetailModel"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ImageDetailModel"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ImageDetailModel"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/JwtHelper/authjwttoken": {
+      "post": {
+        "tags": [
+          "JwtHelper"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Login/getLogin": {
+      "post": {
+        "tags": [
+          "Login"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Passportdata": {
+        "required": [
+          "dob",
+          "expiryDate",
+          "issueDate",
+          "name",
+          "nationality",
+          "passportNumber",
+          "placeOfBirth",
+          "sex"
+        ],
+        "type": "object",
+        "properties": {
+          "passportNumber": {
+            "maxLength": 10,
+            "type": "string"
+          },
+          "name": {
+            "maxLength": 100,
+            "type": "string"
+          },
+          "sex": {
+            "maxLength": 50,
+            "type": "string"
+          },
+          "nationality": {
+            "maxLength": 50,
+            "type": "string"
+          },
+          "issueDate": {
+            "type": "string",
+            "format": "date"
+          },
+          "expiryDate": {
+            "type": "string",
+            "format": "date"
+          },
+          "placeOfBirth": {
+            "maxLength": 100,
+            "type": "string"
+          },
+          "dob": {
+            "type": "string",
+            "format": "date"
+          },
+          "nric": {
+            "maxLength": 50,
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CheckpointDetails": {
+        "required": [
+          "checkPoint",
+          "hall",
+          "lane",
+          "wing"
+        ],
+        "type": "object",
+        "properties": {
+          "checkPoint": {
+            "maxLength": 50,
+            "type": "string"
+          },
+          "hall": {
+            "maxLength": 50,
+            "type": "string"
+          },
+          "wing": {
+            "maxLength": 50,
+            "type": "string"
+          },
+          "lane": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Immigrationdata": {
+        "required": [
+          "fpmatch",
+          "gateStatus"
+        ],
+        "type": "object",
+        "properties": {
+          "gateStatus": {
+            "maxLength": 50,
+            "type": "string"
+          },
+          "gateFailReason": {
+            "type": "string",
+            "nullable": true
+          },
+          "fpmatch": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "checkpointDetails": {
+            "$ref": "#/components/schemas/CheckpointDetails"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Personaldata": {
+        "required": [
+          "documentNumber",
+          "documentType"
+        ],
+        "type": "object",
+        "properties": {
+          "documentType": {
+            "maxLength": 50,
+            "type": "string"
+          },
+          "documentNumber": {
+            "maxLength": 50,
+            "type": "string"
+          },
+          "passportData": {
+            "$ref": "#/components/schemas/Passportdata"
+          },
+          "immigrationData": {
+            "$ref": "#/components/schemas/Immigrationdata"
+          }
+        },
+        "additionalProperties": false
+      },
+      "TravellerData": {
+        "required": [
+          "transactionDateTime",
+          "transactionId"
+        ],
+        "type": "object",
+        "properties": {
+          "transactionId": {
+            "maxLength": 50,
+            "type": "string"
+          },
+          "transactionDateTime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "personalData": {
+            "$ref": "#/components/schemas/Personaldata"
+          }
+        },
+        "additionalProperties": false
+      },
+      "TravellerPostResponce": {
+        "type": "object",
+        "properties": {
+          "transactionId": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "EmailPrototype": {
+        "required": [
+          "contentValue",
+          "sendFrom",
+          "sendTo",
+          "subject"
+        ],
+        "type": "object",
+        "properties": {
+          "sendFrom": {
+            "type": "string",
+            "format": "email"
+          },
+          "sendTo": {
+            "type": "string",
+            "format": "email"
+          },
+          "subject": {
+            "type": "string"
+          },
+          "contentValue": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ImageUploadQueryParameterModel": {
+        "required": [
+          "attempt",
+          "base64String",
+          "biometericType",
+          "captureDateTime",
+          "matchScore",
+          "transactionId"
+        ],
+        "type": "object",
+        "properties": {
+          "transactionId": {
+            "type": "string"
+          },
+          "biometericType": {
+            "type": "string"
+          },
+          "attempt": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "matchScore": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "captureDateTime": {
+            "type": "string"
+          },
+          "base64String": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ImageDetailModel": {
+        "type": "object",
+        "properties": {
+          "transactionId": {
+            "type": "string",
+            "nullable": true
+          },
+          "biometericType": {
+            "type": "string",
+            "nullable": true
+          },
+          "attempt": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "matchscore": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "captureDateTime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "imageurl": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UserModel": {
+        "required": [
+          "name",
+          "password"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "securitySchemes": {
+      "Bearer": {
+        "type": "apiKey",
+        "description": "JWT Authorization header using the Bearer scheme.\r\n                      Enter 'Bearer' [space] and then your token in the text input below.\r\n                      Example: 'Bearer 12345abcdef'",
+        "name": "Authorization",
+        "in": "header"
+      }
+    }
+  },
+  "security": [
+    {
+      "Bearer": []
+    }
+  ]
+}
