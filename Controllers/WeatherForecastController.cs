@@ -35,11 +35,11 @@ namespace MyAPIApp.Controllers
             })
             .ToArray();
         }
-        //[HttpGet("employeeData")]
-        //public string GetEmployee()
-        //{
-        //    return "emp1,emp2";
-        //}
+        [HttpGet("employeeData")]
+        public string GetEmployee()
+        {
+            return "emp1,emp2";
+        }
 
         //[HttpGet("mystudentData")]
         //public string GetStudent()
