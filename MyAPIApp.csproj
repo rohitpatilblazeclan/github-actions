@@ -5,7 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include=".github\workflows\apim-script.ps1" />
     <None Include=".github\workflows\azure-webapps-dotnet-core.yml" />
+    <None Include=".github\workflows\ps-workflow.yml" />
+    <None Include=".github\workflows\resultsfile.log" />
   </ItemGroup>
 
   <ItemGroup>
