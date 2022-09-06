@@ -44,7 +44,7 @@ namespace MyAPIApp
             // specifying the Swagger JSON endpoint.
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v2/swagger.json", "MVCCallWebAPI");
+                c.SwaggerEndpoint("/swagger/v2/MVCCallWebAPI.json", "MVCCallWebAPI");
             });
 
             if (env.IsDevelopment())
