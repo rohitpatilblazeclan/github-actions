@@ -41,7 +41,7 @@ namespace MyAPIApp.Controllers
             return "emp1,emp2";
         }
 
-        [HttpGet("studentData")]
+        [HttpGet("mystudentData")]
         public string GetStudent()
         {
             return "student1,student2";
